@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fixed Size Background Image</title>
+    <style>
+      /* Fixed screen size */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 1280px; /* Fixed width */
+        height: 720px; /* Fixed height */
+        overflow: hidden; /* Prevent scrolling */
+      }
+
+      /* Container fills the viewport */
+      body {
+        /* Replace the URL below with your image path or URL */
+        background-image: url("./events.png");
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: contain; /* Cover entire screen, maintain aspect ratio */
+        background-attachment: fixed;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      /* Optional content wrapper */
+      .content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        color: white;
+        text-align: center;
+        padding-top: 40vh; /* Vertically center text */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.75);
+        font-size: 2rem;
+      }
+      /* The button */
+      .floating-button {
+        position: fixed; /* Fixed position relative to viewport */
+        top: 570px; /* Vertical placement - adjust as needed */
+        left: 117px; /* Horizontal placement - adjust as needed */
+        font-size: 0.7rem; /* Slightly larger for readability */
+        font-weight: 600; /* Emphasize button text */
+        color: #0f6cbd; /* White text for contrast */
+        border: none;
+        border-radius: 8px; /* Rounded corners to soften edges */
+
+        cursor: pointer;
+        transition: background-color 0.25s ease, box-shadow 0.25s ease;
+
+        user-select: none; /* Prevent text selection on double click */
+      }
+
+      .floating-button:hover,
+      .floating-button:focus {
+        background-color: #f2f2f2; /* Darker blue on hover/focus */
+        color: #0a4e8a;
+      }
+
+      /* Responsive tip: Use media query to adjust for smaller screens */
+      @media (max-width: 768px) {
+        .floating-button {
+          font-size: 0.8rem;
+          padding: 8px 14px;
+          top: 150px;
+          left: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      href="https://vincezamora-7.github.io/codingpreprocessor/"
+      class="floating-button"
+      style="text-decoration: underline"
+      onclick="openNewWindow(event, this.href)"
+      >PR Guide</a
+    >
+
+    <script>
+      function openNewWindow(event, url) {
+        event.preventDefault();
+        const width = 800;
+        const height = 600;
+        const left = window.screen.width / 2 - width / 2;
+        const top = window.screen.height / 2 - height / 2;
+        window.open(
+          url,
+          "newwindow",
+          `width=${width},height=${height},top=${top},left=${left},resizable=yes,scrollbars=yes`
+        );
+      }
+    </script>
+  </body>
+</html>
